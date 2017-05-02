@@ -1,0 +1,39 @@
+<!-- replace '#products'-->
+<!-- disabled -->
+<ul id="products" class="inline product-listing columns twelve omega"  data-hook>
+  <% products.each do |product| %>
+    <% option_values = Spree::OptionValue.for_product(product).where(option_type_id: SpreeVariantOptions::VariantConfig.main_option_type_id).all %>
+    <% url_base = product_path(product, :taxon_id => @taxon.try(:id)) %>
+    <% unless option_values == [] %>
+      <% option_values.each do |option_value_by_main_option| %>
+        <% url = url_base + "?#{SpreeVariantOptions::VariantConfig.main_option_type_label}=#{option_value_by_main_option.presentation}" %>
+        <li id="product_<%= product.id %>" class="columns three <%= cycle("alpha", "secondary", "", "omega secondary", :name => "classes") %>" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
+          <div class="product-image">
+            <%= link_to small_image(product.variants_for_option_value(option_value_by_main_option).first, :itemprop => "image"), url, :itemprop => 'url' %>
+          </div>
+          <%= link_to truncate(product.name, :length => 50), url, :class => 'info', :itemprop => "name", :title => product.name %>
+          <span class="product-name"><%= product.name + ": " + option_value_by_main_option.presentation %></span>
+          <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            <span class="price selling" itemprop="price"><%= display_price(product) %>
+            </span>
+          </span>
+        </li>
+      <% end %>
+    <% else %>
+      <% url = url_base %>
+      <li id="product_<%= product.id %>" class="columns three <%= cycle("alpha", "secondary", "", "omega secondary", :name => "classes") %>" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
+        <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
+          <div class="product-image">
+            <%= link_to small_image(product, :itemprop => "image"), url, :itemprop => 'url' %>
+          </div>
+          <%= link_to truncate(product.name, :length => 50), url, :class => 'info', :itemprop => "name", :title => product.name %>
+          <span class="product-name"><%= product.name %></span>
+          <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            <span class="price selling" itemprop="price"><%= display_price(product) %>
+          </span>
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>
+  <% reset_cycle("classes") %>
+</ul>

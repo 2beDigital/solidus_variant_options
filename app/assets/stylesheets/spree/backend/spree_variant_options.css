@@ -1,0 +1,6 @@
+/*
+*= require spree/backend
+*/
+#images #error-message {
+  color: #c00000;
+}

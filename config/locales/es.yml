@@ -1,0 +1,9 @@
+es:
+  select_an_option: Selecciona una opción
+  accept: Aceptar
+  spree:
+    preview: Previsualización
+    attach: Adjunto
+    detach_image: Borrar Imagen
+    select_a: "%{name}: "
+    variant_options_select: Seleccione una opción		

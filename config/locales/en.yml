@@ -1,0 +1,9 @@
+en:
+  spree:
+    preview: Preview
+    attach: Attach
+    detach_image: Detach Image
+    select_a: "%{name}: "
+    variant_options_select: Select an option
+  select_an_option: Select an option
+  accept: Accept

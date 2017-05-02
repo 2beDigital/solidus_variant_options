@@ -1,0 +1,5 @@
+pt:
+  select_an_option: "Selecione uma opção"
+  accept:  "Aceitar"
+  spree:
+    select_a: "%{name}: "
