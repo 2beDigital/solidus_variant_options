@@ -16,4 +16,4 @@ end
 # Fix sass load error by using the converted css file
 template "spree/frontend/screen.css", "app/assets/stylesheets/spree/frontend/screen.css"
 
-run "rails g spree_variant_options:install"
+run "rails g solidus_variant_options:install"

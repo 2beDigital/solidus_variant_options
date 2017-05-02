@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # Runtime
-  solidus_version= '~> 2.2'
+  solidus_version= '~> 2.1'
   s.add_dependency 'solidus_api', solidus_version
   s.add_dependency 'solidus_core', solidus_version
   s.add_dependency 'solidus_frontend', solidus_version

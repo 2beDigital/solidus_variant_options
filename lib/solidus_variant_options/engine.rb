@@ -1,6 +1,6 @@
 module SolidusVariantOptions
   class Engine < Rails::Engine
-    isolate_namespace SpreeVariantOptions
+    isolate_namespace SolidusVariantOptions
     engine_name "solidus_variant_options"
 
     config.to_prepare do
@@ -10,14 +10,8 @@ module SolidusVariantOptions
       end
     end
 
-    initializer "solidus_variant_options.environment", :before => :load_config_initializers, :after => "spree.environment" do |app|
-      Dir.glob(File.join(File.dirname(__FILE__), "../../app/models/spree/app_configuration/*.rb")) do |c|
-        Rails.application.config.cache_classes ? require(c) : load(c)
-      end
-      app.config.spree.add_class('variant_preferences')
-      app.config.spree.variant_preferences = SolidusVariantOptions::VariantConfiguration.new
-
-      SolidusVariantOptions::VariantConfig = app.config.spree.variant_preferences
+    initializer "solidus_variant_options.environment", :before => :load_config_initializers do
+      SolidusVariantOptions::VariantConfig = Spree::SolidusVariantOptionsSettings.new
     end
   end
 end

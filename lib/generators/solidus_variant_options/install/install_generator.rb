@@ -4,7 +4,7 @@ module SolidusVariantOptions
 
       desc "Installs required migrations for spree_essentials"
       def add_migrations
-        run 'bundle exec rake railties:install:migrations FROM=spree_variant_options'
+        run 'bundle exec rake railties:install:migrations FROM=solidus_variant_options'
       end
 
       def run_migrations
@@ -18,7 +18,6 @@ module SolidusVariantOptions
 
       def add_javascripts
         append_file 'vendor/assets/javascripts/spree/frontend/all.js', "//= require spree/frontend/spree_variant_options\n"
-        append_file 'vendor/assets/javascripts/spree/backend/all.js', "//= require spree/backend/spree_variant_options\n"
       end
 
       def add_stylesheets

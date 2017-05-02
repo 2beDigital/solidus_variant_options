@@ -36,11 +36,12 @@
 div.variant-options a.clear-button {
     display: none;
     font-weight: bold;
-    background-color: #fff;
-    border-color: #FDE2E2;
-    color: #c00e0e;
+    background: url(image_path("spree/frontend/delete_icon.png")) 0 0 repeat;
+    background-size: 12px 12px;
+    width: 12px;
+    height: 12px;
     vertical-align: middle;
-    margin-left: 5px;
+    margin-left: 3px;
     line-height: normal;
     font-size: 12px;
 }
@@ -54,7 +55,7 @@ div.variant-options a.clear-button {
 
 .option-value.out-of-stock {
     display: block;
-    background: transparent url(image_path("frontend/out-of-stock.png")) 0 0 repeat;
+    background: transparent url(image_path("spree/frontend/out-of-stock.png")) 0 0 repeat;
     color: #aaa;
     cursor: default;
 }

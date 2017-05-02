@@ -33,12 +33,12 @@
       var variant_options = new VariantOptions({
         options: <%== @product.variant_options_hash.to_json -%>,
         track_inventory_levels: <%==  !!Spree::Config[:track_inventory_levels] -%>,
-        allow_select_outofstock: <%== !!SpreeVariantOptions::VariantConfig[:allow_select_outofstock] -%>,
-        default_instock: <%== !!SpreeVariantOptions::VariantConfig[:default_instock] -%>,
+        allow_select_outofstock: <%== !!SolidusVariantOptions::VariantConfig[:allow_select_outofstock] -%>,
+        default_instock: <%== !!SolidusVariantOptions::VariantConfig[:default_instock] -%>,
         i18n: <%== {:out_of_stock => Spree.t(:out_of_stock), :variant_options_select => Spree.t(:variant_options_select) }.to_json -%>
       });
       $(function() {
-        url = $.urlParam('<%=SpreeVariantOptions::VariantConfig.main_option_type_label%>')
+        url = $.urlParam('<%=SolidusVariantOptions::VariantConfig.main_option_type_label%>')
         $("[title="+ url +"]").click();
       });
     //]]>

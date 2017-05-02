@@ -46,7 +46,7 @@ require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/authorization_helpers'
 require 'spree/testing_support/url_helpers'
 
-require 'spree_variant_options/factories'
+require 'solidus_variant_options/factories'
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods

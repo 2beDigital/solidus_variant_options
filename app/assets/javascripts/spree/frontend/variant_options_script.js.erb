@@ -297,7 +297,7 @@ function VariantOptions(params) {
         selection = [];
         var a = $(this);
         if (!parent.has(a).length) {
-            window.history.pushState("object or string", "Title", window.location.origin + window.location.pathname + "?<%=SpreeVariantOptions::VariantConfig.main_option_type_label%>=" + a.attr("title"));
+            window.history.pushState("object or string", "Title", window.location.origin + window.location.pathname + "?<%=SolidusVariantOptions::VariantConfig.main_option_type_label%>=" + a.attr("title"));
             clear(divs.index(a.parents('.variant-options:first')));
         }
         disable(buttons);

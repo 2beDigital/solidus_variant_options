@@ -55,8 +55,8 @@ Solidus Variant Options comes with some handy options:
 
 These configuration options can be set in a config/initializers/spree_variant_options.rb file for example :
 ```ruby
-SpreeVariantOptions::VariantConfig.allow_select_outofstock = true
-SpreeVariantOptions::VariantConfig.default_instock = true
+SolidusVariantOptions::VariantConfig.allow_select_outofstock = true
+SolidusVariantOptions::VariantConfig.default_instock = true
 ```
 
 ------------------------------------------------------------------------------

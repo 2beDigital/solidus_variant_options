@@ -40,7 +40,7 @@ class ProductTest < ActionDispatch::IntegrationTest
       :name => "add_other_form_to_spree_variant_options",
       :insert_after => "div#cart-form",
       :text => '<div id="wishlist-form"><%= form_for Spree::WishedProduct.new, :url => "foo", :html => {:"data-form-type" => "variant"} do |f| %><%= f.hidden_field :variant_id, :value => @product.master.id %><button type="submit"><%= t(:add_to_wishlist) %></button><% end %></div>')
-      SpreeVariantOptions::VariantConfig.default_instock = false
+      SolidusVariantOptions::VariantConfig.default_instock = false
     end
 
     should 'disallow choose out of stock variants' do
@@ -112,7 +112,7 @@ class ProductTest < ActionDispatch::IntegrationTest
     end
 
     should "should select first instock variant when default_instock is true" do
-      SpreeVariantOptions::VariantConfig.default_instock = true
+      SolidusVariantOptions::VariantConfig.default_instock = true
 
       visit spree.product_path(@product)
 
@@ -212,8 +212,8 @@ class ProductTest < ActionDispatch::IntegrationTest
 
     def teardown
       # reset preferences to default values
-      SpreeVariantOptions::VariantConfig.allow_select_outofstock = false
-      SpreeVariantOptions::VariantConfig.default_instock = false
+      SolidusVariantOptions::VariantConfig.allow_select_outofstock = false
+      SolidusVariantOptions::VariantConfig.default_instock = false
     end
   end
 

@@ -1,5 +1,5 @@
-module SolidusVariantOptions
-  class VariantConfiguration < Spree::Preferences::Configuration
+module Spree
+  class SolidusVariantOptionsSettings < Spree::Preferences::Configuration
     preference :allow_select_outofstock, :boolean, :default => false
     preference :default_instock, :boolean, :default => false
     preference :main_option_type_id, :integer, :default => 1
