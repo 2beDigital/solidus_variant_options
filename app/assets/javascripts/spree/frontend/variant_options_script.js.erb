@@ -232,22 +232,16 @@ function VariantOptions(params) {
             $('#variant_id, form[data-form-type="variant"] input[name$="[variant_id]"]').val(variant.id);
             $('#product-price .price').removeClass('unselected').text(variant.price.replace('$','€'));
 
-            // Parte añadida para mostrar precio de costo para cada una de las variants.
+            
             var id = variant.id;
-            var cost_prices = 0;
-            for(i = 0; i < products.length; i++){
-                if(products[i].id == id){
-                    cost_prices = products[i].cost_price;
-                    break;
-                }
-            }
             try {
                 show_variant_images(variant.id);
             } catch(error) {
                 // depends on modified version of product.js
             }
-            if (cost_prices != 0 && cost_prices != null && cost_prices != undefined ) {
-                $('#product-price .cost-price').text(cost_prices + ' €');
+            // Parte añadida para mostrar precio de costo para cada una de las variants.
+            if (variant.cost_price != 0 && variant.cost_price != null && variant.cost_price != undefined ) {
+                $('#product-price .cost-price').text(variant.cost_price);
 
             } else {
                 $('#product-price .cost-price').text('');

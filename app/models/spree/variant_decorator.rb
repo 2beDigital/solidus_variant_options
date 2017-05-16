@@ -4,12 +4,13 @@ Spree::Variant.class_eval do
 
   def to_hash
     actual_price  = self.price
-    #actual_price += Calculator::Vat.calculate_tax_on(self) if Spree::Config[:show_price_inc_vat]
+    actual_cost_price = self.cost_price
     {
       :id    => self.id,
       :in_stock => self.in_stock?,
       :can_supply => self.can_supply?,
-      :price => number_to_currency(actual_price)
+      :price => number_to_currency(actual_price),
+      :cost_price => number_to_currency(actual_cost_price)
     }
   end
 
