@@ -5,7 +5,7 @@
       <div id="<%= dom_id(type) %>" class="variant-options index-<%= index %>">
         <h6 class="variant-option-type">
           <%= label_tag 'option-value-name', Spree.t(:select_a, :index => index + 1, :name => type.presentation) %>&nbsp;
-          <strong class='selection'></strong>
+          <strong class='selection'><span class="hidden">&nbsp;</span></strong>
           <%= link_to "", "#clear", :class => "icon-remove clear-button clear-index-#{index}" %>
         </h6>
 
