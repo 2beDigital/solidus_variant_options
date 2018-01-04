@@ -4,7 +4,7 @@ Deface::Override.new(:virtual_path => "spree/products/show",
                      :text => "<% content_for :foot do %>
                                   <div id='shadow-alert'></div>
                                    <div id='alert-select-variant'>
-                                    <p><i class='fa fa-exclamation-triangle fa-2x'></i></p>
+                                    <p><i class='fa fa-exclamation-triangle fa-2x'><span class='hidden'>&nbsp;</span></i></p>
                                     <p><%= t(:select_an_option) %></p>
                                     <%= button_tag :class => 'btn', :id => 'alert-select-variant-button', :type => :submit do %>
                                         <%= t(:accept) %>
