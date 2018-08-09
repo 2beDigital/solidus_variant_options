@@ -7,7 +7,7 @@
   <td class="presentation"><%= f.text_field :presentation, class: "form-control" %></td>
   <td align="center">
     <% if f.object.has_image? %>
-        <%= image_tag f.object.image.url(:small) %>
+        <%= image_tag f.object.image.url(:mini) %>
         <%= link_to_with_icon 'icon-remove', '', detach_image_admin_option_value_path(f.object), title: Spree.t(:detach_image) %>
     <% end %>
   </td>
