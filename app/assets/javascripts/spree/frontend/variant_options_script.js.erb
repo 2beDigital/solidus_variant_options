@@ -241,7 +241,7 @@ function VariantOptions(params) {
             }
             // Parte añadida para mostrar precio de costo para cada una de las variants.
             if (variant.cost_price != 0 && variant.cost_price != null && variant.cost_price != undefined ) {
-                $('#product-price .cost-price').text(variant.cost_price);
+                $('#product-price .cost-price').text(variant.cost_price.replace('$','€'));
 
             } else {
                 $('#product-price .cost-price').text('');
